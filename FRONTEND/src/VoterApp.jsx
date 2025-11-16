@@ -19,7 +19,7 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function VoterApp() {
-  const baseUrl = `http://localhost:32494`;
+  const baseUrl = `http://localhost:32494/api`;
   const [voter, setVoter] = useState({
     id: "",
     name: "",
