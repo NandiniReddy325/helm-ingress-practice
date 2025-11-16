@@ -35,7 +35,7 @@ export default function VoterApp() {
   useEffect(() => {
     const fetchAllVoters = async () => {
       try {
-        const res = await axios.get(`${baseUrl}/all`);
+        const res = await axios.get(`${baseUrl}/api/all`);
         setAllVoters(res.data);
       } catch (err) {
         console.error("Error fetching all voters", err);
@@ -70,11 +70,11 @@ export default function VoterApp() {
     }
 
     try {
-      const res = await axios.post(`${baseUrl}/add`, voter);
+      const res = await axios.post(`${baseUrl}/api/add`, voter);
       alert(res.data);
 
       // Refresh voter list
-      const allRes = await axios.get(`${baseUrl}/all`);
+      const allRes = await axios.get(`${baseUrl}/api/all`);
       setAllVoters(allRes.data);
 
       setVoter({ id: "", name: "", age: "", number: "", gender: "" });
@@ -92,7 +92,7 @@ export default function VoterApp() {
       return;
     }
     try {
-      const res = await axios.get(`${baseUrl}/get/${id}`);
+      const res = await axios.get(`${baseUrl}/api/get/${id}`);
       setVoterData(res.data);
       alert("Voter Found");
       setId("");
